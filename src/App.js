@@ -3,8 +3,12 @@ import Header from './Header';
 import Footer from './Footer';
 import BestBooks from './BestBooks';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {
-  BrowserRouter as Router,
+import Login from './Login';
+import Logout from './Logout';
+import Profile from './Profile';
+import { withAuth0 } from '@auth0/auth0-react';
+
+ { BrowserRouter as Router,
   Routes,
   Route
 } from "react-router-dom";
@@ -13,7 +17,12 @@ class App extends React.Component {
   render() {
     return (
       <>
-        <Router>
+        <h1>Can Of Books Auth</h1>
+      <>
+      <Profile />
+      <BestBooks />
+      <Login />
+      <Router>
           <Header />
           <Routes>
             <Route 
@@ -26,8 +35,18 @@ class App extends React.Component {
           <Footer />
         </Router>
       </>
+      :
+      <Logout />
+      </>
     )
   }
 }
 
 export default App;
+
+
+
+
+
+
+        
